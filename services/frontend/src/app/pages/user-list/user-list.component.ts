@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
         if (userIndex >= 0) {
           this.userList[userIndex] = userData;
           this.messageService.show({
-            message: `O usuário (${userData?.name}) foi atualizado com sucesso`,
+            message: `O usuário "${userData?.name}" foi atualizado com sucesso`,
             duration: 4000,
           });
         }
@@ -63,7 +63,7 @@ export class UserListComponent implements OnInit {
       if (userIndex >= 0) {
         this.userList.splice(userIndex, 1);
         this.messageService.show({
-          message: `O usuário (${userData?.name}) foi removido com sucesso`,
+          message: `O usuário "${userData?.name}" foi removido com sucesso`,
         });
       }
     }

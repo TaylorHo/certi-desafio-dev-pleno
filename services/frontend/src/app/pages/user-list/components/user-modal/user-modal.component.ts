@@ -20,7 +20,7 @@ export class UserModalComponent {
       ? await this.userListService.updateUser({
           ...this.data,
           name: formData?.name,
-          role: formData?.role.toString(),
+          role: formData?.role?.toString(),
         })
       : await this.userListService.addNewUser(formData);
     if (success) {

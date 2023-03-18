@@ -18,21 +18,23 @@ export class AuthService {
 
   public async login(user: AuthenticationLoginDto, response: any) {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
-    const isTheSamePassword = await this.comparePasswords(existingUser.password, user.password);
 
-    if (existingUser && isTheSamePassword) {
-      const payload = { email: user.email, id: existingUser._id };
-      return response.status(HttpStatus.OK).json({
-        access_token: this.jwtService.sign(payload),
-        id: payload.id,
-      });
-    } else {
-      return response.status(HttpStatus.UNAUTHORIZED).json({
-        statusCode: 401,
-        message: 'Erro: Falha na autenticação!',
-        error: 'Not Authorized',
-      });
+    if (existingUser) {
+      const isTheSamePassword = await this.comparePasswords(existingUser.password, user.password);
+      if (isTheSamePassword) {
+        const payload = { email: user.email, id: existingUser._id };
+        return response.status(HttpStatus.OK).json({
+          access_token: this.jwtService.sign(payload),
+          id: payload.id,
+        });
+      }
     }
+
+    return response.status(HttpStatus.UNAUTHORIZED).json({
+      statusCode: 401,
+      message: 'Erro: Falha na autenticação!',
+      error: 'Not Authorized',
+    });
   }
 
   public async register(user: AuthenticationRegisterDto, response: any) {

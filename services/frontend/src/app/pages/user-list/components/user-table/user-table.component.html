@@ -12,7 +12,13 @@
     <tbody>
       <tr *ngFor="let user of userList; trackBy: trackByFn" style="vertical-align: middle">
         <td>
-          <button mat-icon-button matTooltip="Editar" color="primary" (click)="update.emit(user)">
+          <button
+            mat-icon-button
+            matTooltip="Editar"
+            color="primary"
+            (click)="update.emit(user)"
+            [disabled]="!canEdit(user)"
+          >
             <mat-icon>edit</mat-icon>
           </button>
         </td>
@@ -22,7 +28,7 @@
             matTooltip="Excluir"
             color="warn"
             [matMenuTriggerFor]="deleteMenu"
-            [disabled]="isOwner(user)"
+            [disabled]="isOwner(user) || !canEdit(user)"
           >
             <mat-icon>delete</mat-icon>
           </button>

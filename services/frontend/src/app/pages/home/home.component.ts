@@ -13,6 +13,7 @@ import { environment } from '@environments/environment';
 export class HomeComponent {
   public readonly userRoles: string[] = environment.userRoles;
   public currentUser$: Observable<PROFILE | null> = this.globalData.currentUser$.asObservable();
+  public usersApiURL: string = environment.apiUrl;
 
   constructor(private globalData: GlobalDataService, private authService: AuthService) {}
 

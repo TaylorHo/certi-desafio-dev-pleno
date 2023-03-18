@@ -29,6 +29,7 @@ export class UserController {
     try {
       createUserDto.password = await this.authService.encryptPassword(createUserDto.password);
       const newUser = await this.userService.createUser(createUserDto);
+      newUser.password = null;
       return response.status(HttpStatus.CREATED).json({
         message: 'O usuário foi criado com sucesso',
         newUser,

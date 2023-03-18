@@ -42,14 +42,14 @@ export class UserListService {
       body: {
         email: formData?.email,
         password: formData?.password,
-        role: formData?.role || 1,
+        role: formData?.role?.toString() || '1',
         name: formData?.name,
       },
     };
     const { success, data } = await this.apiService.post(httpData);
     if (success && data?.newUser) {
       this.snackMessage.show({
-        message: `O usuario ${formData?.name} foi criado`,
+        message: `O usuário "${formData?.name}" foi criado`,
       });
       const userId = data.newUser._id;
       delete data.newUser.password;

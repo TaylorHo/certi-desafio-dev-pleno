@@ -6,4 +6,102 @@
       <mat-card-subtitle>{{ userRoles[currentUser.role] }}</mat-card-subtitle>
     </mat-card-header>
   </ng-container>
+
+  <mat-card-content>
+    <h2>Gerenciamento de Usuários</h2>
+    <p>
+      Bem vindo(a) ao projeto de Gerenciamento de Usuários! Existem 3 cargos/funções disponíveis aos usuários (Super Admin, Admin e Cliente).
+      Além disso, essa plataforma conta com 6 páginas (Login, Registro, Página Inicial, Lista de Usuários, Erro 401 e Erro 404).
+    </p>
+
+    <h2>Segurança</h2>
+    <p>
+      Usuários recém registrados recebem a função de "Cliente" por padrão e, por questões de segurança, um usuário recém criado, que é um cliente,
+      não deveria ter acesso à listagem, edição, criação e exclusão de usuários e, por isso, se você está logado como um usuário
+      "Cliente" (provavelmente logo após o registro), você não terá acesso à isso.
+    </p>
+    <p>
+      Para edição, exclusão e listagem de usuários, você pode logar como Admin ou Super Admin utilizando as credenciais abaixo:
+    </p>
+    <ul>
+      <li>
+        <strong>Super Admin</strong>:
+        <ul>
+          <li>Usuário: <i>superadmin@mail.com</i></li>
+          <li>Senha: <i>password</i></li>
+        </ul>
+      </li>
+      <li>
+        <strong>Admin</strong>:
+        <ul>
+          <li>Usuário: <i>admin@mail.com</i></li>
+          <li>Senha: <i>password</i></li>
+        </ul>
+      </li>
+    </ul>
+
+
+
+    <h2>Regras de Negócio</h2>
+    <ul>
+      <li>
+        Todos os usuários podem ver a página inicial quando logam em suas contas. A página inicial é protegida para permitir
+        apenas usuários autorizados. Se o usuário não tem um token de acesso, ele é redirecionado para a página de login.
+      </li>
+      <li>
+        Seguindo a mesma lógica, todos os endpoints do backend relacionados ao CRUD de usuários são pretegidos. Apenas
+        os endpoints de login e de registro não requerem autenticação prévia.
+      </li>
+      <li>
+        Se um usuário com a função "Cliente" tentar acessar a página com a <a [routerLink]="['/user-list']">lista de usuários</a>, ele será redirecionado para a página
+        de erro <a [routerLink]="['/error/401']">401 (Proibido)</a>.
+      </li>
+      <li>Funções de editar, criar, excluir e listar usuários estão disponíveis na página da <a [routerLink]="['/user-list']">lista de usuários</a></li>
+      <li>O nome de usuário não pode ser alterado após o registro, pois é usado para login.</li>
+      <li>
+        Se um usuário Admin ou Super Admin editar seu cargo e mudá-lo para "Cliente", ele perdem o acesso à página com a lista de usuários
+        assim que tentar fazer qualquer outra ação.
+      </li>
+      <li>
+        Um usuário do tipo Admin pode apenas alterar informações de usuários do tipo "Cliente", e não de outros usuários do tipo "Admin" e muito menos "Super Admin".
+      </li>
+      <li>
+        O token JWT utilizado na autenticação expira após 1 hora.
+      </li>
+    </ul>
+
+    <h2>Funções</h2>
+    <ul>
+      <li>Super Admin <i>(nível de acesso 3)</i></li>
+      <li>Admin <i>(nível de acesso 2)</i></li>
+      <li>Cliente <i>(nível de acesso 1)</i></li>
+    </ul>
+
+    <h2>Sobre essa Plataforma</h2>
+    <ul>
+      <li>Frontend criado em Angular 15</li>
+      <li>Backend criado em NestJS</li>
+      <li>Documentação da API de usuários acessível em <a href="{{usersApiURL}}" target="_blank">{{usersApiURL}}</a></li>
+      <li>Biblioteca de estilos Material Design</li>
+      <li>Sass como template engine de CSS</li>
+      <li>Autenticação com JWT</li>
+      <li>Banco de dados NoSql com mongoDB</li>
+      <li>Messageria com Kafka para gerenciamento de usuários em forma de fila</li>
+      <li>Ambientes de desenvolvimento, desenvolvimento em container, staging e produção</li>
+      <li>Load Balancing com NGINX (quando subido o ambiente de produção)</li>
+    </ul>
+
+    <h2>Considerações finais</h2>
+    <p>
+      Ao todo, este projeto consumiu 12 horas de trabalho, com tudo sendo criado do absoluto zero, e tem como principal objetivo
+      mostrar que um desenvolvedor com pouco tempo de experiência profissional ou tempo de formação é tão capaz quanto ou, em alguns casos,
+      até melhor que os devs com mais tempo de formação e/ou experiência profissional.
+    </p>
+    <p>
+      É tudo uma questão de experiência, empenho e dedicação ao aprendizado, não de tempo.
+    </p>
+
+    <p>Obrigado!</p>
+
+  </mat-card-content>
 </mat-card>

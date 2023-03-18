@@ -1,0 +1,14 @@
+[
+    {
+      "name": "Admin User",
+      "email": "admin@mail.com",
+      "role": 2,
+      "password": "$2b$12$jogVxbzBvlMadTtIPyNsmO5LyGw1iCJWj74.3AJKkMYeQPDfyDnly"
+    },
+    {
+      "name": "Super Admin User",
+      "email": "superadmin@mail.com",
+      "role": 3,
+      "password": "$2b$12$jogVxbzBvlMadTtIPyNsmO5LyGw1iCJWj74.3AJKkMYeQPDfyDnly"
+    }
+  ]
