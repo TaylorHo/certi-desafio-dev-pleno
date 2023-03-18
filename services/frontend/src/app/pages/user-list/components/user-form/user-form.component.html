@@ -1,0 +1,61 @@
+<form [formGroup]="userForm">
+  <mat-form-field appearance="outline" class="d-block mb-2">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Email" />
+    <mat-error *ngIf="fieldHasError('email')">
+      {{ getErrorMessage('email') }}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="d-block mb-2">
+    <mat-label>Nome Completo</mat-label>
+    <input formControlName="name" matInput placeholder="Nome Completo" />
+    <mat-error *ngIf="fieldHasError('name')">
+      {{ getErrorMessage('name') }}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="d-block mb-2">
+    <mat-label>Cargo</mat-label>
+    <mat-select formControlName="role">
+      <mat-option *ngFor="let userRole of userRoles" [value]="userRole.val">
+        {{ userRole.viewVal }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="fieldHasError('role')">
+      {{ getErrorMessage('role') }}
+    </mat-error>
+  </mat-form-field>
+
+  <ng-container *ngIf="!userData">
+    <mat-form-field appearance="outline" class="d-block mb-2">
+      <mat-label>Senha</mat-label>
+      <input formControlName="password" matInput placeholder="Senha" [type]="showPassword ? 'text' : 'password'" />
+      <!-- SHOW AND HIDE PASSWORD -->
+      <button
+        color="accent"
+        matSuffix
+        mat-icon-button
+        [attr.aria-label]="showPassword ? 'Esconder' : 'Mostrar'"
+        (click)="showPassword = !showPassword"
+        type="button"
+      >
+        <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <!-- SHOW AND HIDE PASSWORD -->
+      <mat-error *ngIf="fieldHasError('password')">
+        {{ getErrorMessage('password') }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-block mb-2">
+      <mat-label>Confirmação de Senha</mat-label>
+      <input
+        formControlName="passwordConfirm"
+        matInput
+        placeholder="Confirmação de Senha"
+        [type]="showPassword ? 'text' : 'password'"
+      />
+      <mat-error *ngIf="fieldHasError('passwordConfirm')">
+        {{ getErrorMessage('passwordConfirm') }}
+      </mat-error>
+    </mat-form-field>
+  </ng-container>
+</form>

@@ -1,0 +1,255 @@
+{
+  "users": [
+    {
+      "email": "ksa@ho.co",
+      "password": "$2a$10$x20Nt6eJIeB6DgSncxj0P.u9B8nacb57RZ/AbUd4dXkktGc0ZOvsm",
+      "id": "4f69000d-65a3-4ef3-9d28-ff8485350048"
+    },
+    {
+      "email": "keas@ho.co",
+      "password": "$2a$10$D2/Hl9ChzlgYviIf8vCom.e19S3HWoLJfgjb6Dipt3Ly2KpSSUjyK",
+      "id": "979eee30-ec88-471b-a2f9-35100f15b879"
+    },
+    {
+      "email": "hsaw@ho.co",
+      "password": "$2a$10$AjQihvATQv6Vhk56jCPxL.NrhJkvm7Hf1U9pO.rZbErB2qtcnMnUu",
+      "id": "ad5ddcf2-b493-4022-86b6-f5e954a91908"
+    },
+    {
+      "email": "kas@ho.co",
+      "password": "$2a$10$dvT4QNXERLed00BrG7FtGekVC8ATvC/BRkOfsDH/t4cix/wch8j4q",
+      "id": "a145423c-09c8-418e-ac6d-43ca74ee84b2"
+    },
+    {
+      "email": "laksd@ho.co",
+      "password": "$2a$10$5JO7behk9ABG3mcUk6gh6umb4FvX6ebtr/VO6paO5rFjLOCB9OvzO",
+      "id": "0f314007-e17e-4aaf-bd6e-58aed309076e"
+    },
+    {
+      "email": "lkasd@ho.co",
+      "password": "$2a$10$9pLHHvAV7n.Y94d0Y9E3Pe.Sl7y/f6D0EdIKuICuKUxJ0syNPGNF2",
+      "id": "06d82de7-6463-4d08-a68d-9a4a4239436e"
+    },
+    {
+      "email": "tam@ho.co",
+      "password": "$2a$10$miSGZU0wAsphm4o1bdlA3uwZZ3V.FBA.lH.laERvpmaFhm7U6peka",
+      "id": "32611d04-4783-49ea-af4e-faf41554ab8c"
+    },
+    {
+      "email": "dasdasd@ho.co",
+      "password": "$2a$10$5pJ/9G/nBEOJqMV8OzVEo.p0AszSwqvSBX/9VYDUACWtS5K3tOMFm",
+      "id": "47e1c686-7171-4089-8db7-acae7e0684e7"
+    },
+    {
+      "email": "kokoca@mail.com",
+      "password": "$2a$10$szkbGjAAap4VgTcj6.KyMORRxxLn3Pe0h8JUFO299I08SE7jAcTwe",
+      "id": "d2c510bd-2782-463f-afb6-6d09e1d679ab"
+    },
+    {
+      "email": "kralsasd@ho.co",
+      "password": "$2a$10$1rXuaUyN2bqiTFqY681zluLS6mHFW1RXCtvfDR9VBWmbNtIdXAGEW",
+      "id": "075f1e6b-89a2-4e3b-95ea-3751d9bbff29"
+    },
+    {
+      "email": "joasd@ho.co",
+      "password": "$2a$10$7iAVTjmG2oRNzkZqlzUnNu3cQqfIfoOWmrEHQsjYP9rsaG4c.axiO",
+      "id": "82342477-d53d-4091-8c70-f5aac17304e6"
+    },
+    {
+      "email": "dasdasdasd@ho.co",
+      "password": "$2a$10$kdMJw1NzB3Yu//2iKqY85euR0E7O1IiQhIUxmBFnxsDIEmmsT76eC",
+      "id": "1ff6ef5e-e6ca-414d-b006-dd1531b4f5d6"
+    },
+    {
+      "email": "superadmin@mail.com",
+      "password": "$2a$10$TcZPIQWMZR4cEbcUR/mM6umq404RPomkSmAR4hxghTdHdXzGfDvC2",
+      "id": "64fe14fc-f071-455e-88d0-102003470312"
+    },
+    {
+      "email": "admin@mail.com",
+      "password": "$2a$10$qeUAuo4rc44UG2r28pHpTePwQJdCkHuo5Y6r5bXybngeFBfyGbSiO",
+      "id": "b692129e-ef7f-4f5c-996e-8df976c6fccb"
+    },
+    {
+      "email": "customer@mail.com",
+      "password": "$2a$10$zSiP7wDew8eqzQ9jZlIHQedS7vIQB/Q5/ca4p9QxSrnk1sKbXk6PK",
+      "id": "62cb2b27-f892-4be1-b462-d8ae26283e1d"
+    },
+    {
+      "email": "dadad@ho.co",
+      "password": "$2a$10$SxqQLd.FWhWHFN/M/mCjvuPVpbHnBNJUVlwPiKdoLk662i/6.FCBa",
+      "id": "e3f63ea8-8bcf-4f72-8600-3aa947afccf5"
+    },
+    {
+      "email": "lasttest@ho.co",
+      "password": "$2a$10$iYxvE9cDdAf2.pK1/NmuHeZmcmOgQDhHpvaOowYrTb55ox4HUw3WC",
+      "id": "c2ab5d60-b034-42c8-bc9d-7861e8b19317"
+    },
+    {
+      "email": "dfsdfdsf@ho.co",
+      "password": "$2a$10$Ja5TTI98Wz72e4vqKl6/J.U3YOiKiqiHN1gadSzTOtk4G51KuBh5S",
+      "id": "d3fdfdba-620b-4bcb-a42a-d6dbd24db565"
+    },
+    {
+      "email": "demo@mail.com",
+      "password": "$2a$10$COSO26sqq4SA5ABslccvQeCZa67MRm5/3fYOMAeA9idrnX8RKoGRi",
+      "id": "7c8ffecc-19e3-474d-9690-f3b396d81f6e"
+    },
+    {
+      "email": "ldksad@ho.co",
+      "password": "$2a$10$UxFLgHC5taEKVnJOJaw4OOLljBQRhpN46jHtUfk4YjwPTIgzwggVG",
+      "id": "68d906d4-06b6-4b7b-ab74-d1a934965957"
+    },
+    {
+      "email": "noobadmin@ho.co",
+      "password": "$2a$10$vfiVlTxKJBVEnz3xf/12qOrIGNPEsdzXoyXTnIWv2d4gY9XdJVShO",
+      "id": "849c94e2-f2d6-41e3-ae19-5349f0d97d7f"
+    },
+    {
+      "email": "another@mail.com",
+      "password": "$2a$10$BPTi3AaATBW4sVquxGWPOef9eSOkMfctDU2RppYJaZzKBb8CArGqe",
+      "id": "006072e1-1cfa-464c-b48f-b7b35eb6888c"
+    },
+    {
+      "email": "teste@mail.com",
+      "password": "$2a$10$Hr.ZO9nHehQNs3nh6i4oc.P7QoIVLySg3p9bu9Tteo0Itoh5RwRDC",
+      "id": "913d8fd0-f5dd-48eb-942b-afdb74b92164"
+    },
+    {
+      "email": "test2@email.com",
+      "password": "$2a$10$a45TddcwUHnwq7mhEpQituhpTNIIsrM/qAcUVgtGc9Cnmx/2qH6GO",
+      "id": "d251f118-b12f-4676-9d7d-12a45f34466b"
+    },
+    {
+      "email": "admin@email.com",
+      "password": "$2a$10$d5LPKw0hrn.XEpKgNUI7neGJq7vfBYmCqcAHGi6sRIUPkfO5TvFEa",
+      "id": "0c93a469-bcc8-4e39-a959-0f9a69df9999"
+    },
+    {
+      "email": "user@mail.com",
+      "password": "$2a$10$LI.Ervtj8By6/TXSDRGTwufPIrIwZCPCv12Zhu.yEFFDXFUie15Uy",
+      "id": "6b4ded07-09fb-4a02-bca3-19076f959a1d"
+    }
+  ],
+  "profiles": [
+    {
+      "id": 7,
+      "email": "ksa@ho.co",
+      "fullName": "Kei Slazse Test",
+      "role": 1,
+      "userId": "4f69000d-65a3-4ef3-9d28-ff8485350048"
+    },
+    {
+      "userId": "979eee30-ec88-471b-a2f9-35100f15b879",
+      "email": "keas@ho.co",
+      "fullName": "Kaes Slamsa",
+      "role": 1,
+      "id": 8
+    },
+    {
+      "userId": "ad5ddcf2-b493-4022-86b6-f5e954a91908",
+      "email": "hsaw@ho.co",
+      "fullName": "Holasea Saersa",
+      "role": 1,
+      "id": 9
+    },
+    {
+      "fullName": "Keoas sa",
+      "role": 1,
+      "email": "kas@ho.co",
+      "userId": "a145423c-09c8-418e-ac6d-43ca74ee84b2",
+      "id": 10
+    },
+    {
+      "userId": "d2c510bd-2782-463f-afb6-6d09e1d679ab",
+      "email": "kokoca@mail.com",
+      "fullName": "Koko Caszsi",
+      "role": 1,
+      "id": 11
+    },
+    {
+      "userId": "075f1e6b-89a2-4e3b-95ea-3751d9bbff29",
+      "email": "kralsasd@ho.co",
+      "fullName": "Krals Cra Rca",
+      "role": 1,
+      "id": 12
+    },
+    {
+      "userId": "64fe14fc-f071-455e-88d0-102003470312",
+      "email": "superadmin@mail.com",
+      "fullName": "Super Admin",
+      "role": 3,
+      "id": 14
+    },
+    {
+      "userId": "b692129e-ef7f-4f5c-996e-8df976c6fccb",
+      "email": "admin@mail.com",
+      "fullName": "Admin",
+      "role": 2,
+      "id": 15
+    },
+    {
+      "userId": "62cb2b27-f892-4be1-b462-d8ae26283e1d",
+      "email": "customer@mail.com",
+      "fullName": "Customer",
+      "role": 1,
+      "id": 16
+    },
+    {
+      "userId": "7c8ffecc-19e3-474d-9690-f3b396d81f6e",
+      "email": "demo@mail.com",
+      "fullName": "Demo Account",
+      "role": 1,
+      "id": 17
+    },
+    {
+      "userId": "68d906d4-06b6-4b7b-ab74-d1a934965957",
+      "email": "ldksad@ho.co",
+      "fullName": "Ronca Mestip",
+      "role": 1,
+      "id": 18
+    },
+    {
+      "userId": "849c94e2-f2d6-41e3-ae19-5349f0d97d7f",
+      "email": "noobadmin@ho.co",
+      "fullName": "Noob Customer",
+      "role": 1,
+      "id": 19
+    },
+    {
+      "userId": "006072e1-1cfa-464c-b48f-b7b35eb6888c",
+      "email": "another@mail.com",
+      "fullName": "Another User",
+      "role": 1,
+      "id": 20
+    },
+    {
+      "userId": "913d8fd0-f5dd-48eb-942b-afdb74b92164",
+      "email": "teste@mail.com",
+      "fullName": "Teste",
+      "role": 1,
+      "id": 21
+    },
+    {
+      "userId": "d251f118-b12f-4676-9d7d-12a45f34466b",
+      "email": "test2@email.com",
+      "fullName": "Testando aqui",
+      "role": 1,
+      "id": 22
+    },
+    {
+      "userId": "0c93a469-bcc8-4e39-a959-0f9a69df9999",
+      "email": "admin@email.com",
+      "fullName": "Admin",
+      "role": 2,
+      "id": 23
+    },
+    {
+      "userId": "6b4ded07-09fb-4a02-bca3-19076f959a1d",
+      "email": "user@mail.com",
+      "fullName": "User",
+      "role": 1,
+      "id": 24
+    }
+  ]
+}

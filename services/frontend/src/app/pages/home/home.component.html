@@ -1,0 +1,9 @@
+<mat-card class="home-card my-3">
+  <ng-container *ngIf="currentUser$ | async as currentUser">
+    <mat-card-header *ngIf="currentUser">
+      <div mat-card-avatar class="home-header-image"></div>
+      <mat-card-title>{{ currentUser?.name }}</mat-card-title>
+      <mat-card-subtitle>{{ userRoles[currentUser.role] }}</mat-card-subtitle>
+    </mat-card-header>
+  </ng-container>
+</mat-card>

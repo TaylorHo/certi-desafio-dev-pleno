@@ -1,0 +1,39 @@
+<div class="login-header-wrapper">
+  <h2>Login</h2>
+  <p>Entre em sua conta para continuar.</p>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+  <mat-form-field appearance="outline" class="d-block mb-2">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Email" />
+    <mat-error *ngIf="fieldHasError('email')">
+      {{ getErrorMessage('email') }}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="d-block mb-2">
+    <mat-label>Senha</mat-label>
+    <input formControlName="password" matInput placeholder="Senha" [type]="showPassword ? 'text' : 'password'" />
+    <!-- SHOW AND HIDE PASSWORD -->
+    <button
+      color="accent"
+      matSuffix
+      mat-icon-button
+      [attr.aria-label]="showPassword ? 'Esconder' : 'Mostrar'"
+      (click)="showPassword = !showPassword"
+      type="button"
+    >
+      <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <!-- SHOW AND HIDE PASSWORD -->
+    <mat-error *ngIf="fieldHasError('password')">
+      {{ getErrorMessage('password') }}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="d-flex justify-content-center">
+    <button class="px-5" mat-raised-button color="primary" [disabled]="!loginForm.valid">Entrar</button>
+  </div>
+  <div class="navigation-link">
+    <b>Não tem uma conta? <a [routerLink]="['/auth/register']">Criar uma nova conta</a></b>
+  </div>
+</form>
