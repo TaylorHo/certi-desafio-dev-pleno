@@ -13,7 +13,7 @@ export class UserListService {
   // LIST USERS
   public async getAllUsers(): Promise<PROFILE[]> {
     const httpData: HTTP_REQ = {
-      url: 'user',
+      url: 'users',
     };
     const { success, data } = await this.apiService.get(httpData);
     if (success && data?.userData) {
@@ -38,7 +38,7 @@ export class UserListService {
   // ADD NEW USER
   public async addNewUser(formData: REGISTER_FORM_DATA): Promise<{ success: boolean; user: PROFILE }> {
     const httpData: HTTP_REQ = {
-      url: 'user',
+      url: 'users',
       body: {
         email: formData?.email,
         password: formData?.password,
@@ -72,7 +72,7 @@ export class UserListService {
 
   public async updateUser(user: PROFILE): Promise<{ success: boolean; user: PROFILE }> {
     const httpData: HTTP_REQ = {
-      url: `user/${user.id}`,
+      url: `users/${user.id}`,
       body: {
         ...user,
       },
@@ -100,7 +100,7 @@ export class UserListService {
 
   public async deleteUser(userID: number): Promise<{ success: boolean; user: PROFILE }> {
     const httpData: HTTP_REQ = {
-      url: `user/${userID}`,
+      url: `users/${userID}`,
     };
     const { success, data } = await this.apiService.delete(httpData);
     if (success && data?.deletedUser) {

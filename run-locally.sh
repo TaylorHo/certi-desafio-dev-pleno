@@ -3,14 +3,14 @@
 cd services/
 
 cd database/
-docker-compose up -d
-cd ../
-
-cd frontend
-npm start &
+docker-compose --env-file .env.dev up -d
 cd ../
 
 cd users-api/
+npm start &
+cd ../
+
+cd frontend
 npm start &
 cd ../../
 

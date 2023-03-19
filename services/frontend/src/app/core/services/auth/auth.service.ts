@@ -58,7 +58,7 @@ export class AuthService {
 
   public async userProfile(): Promise<PROFILE | null> {
     const userID = this.cookieService.get('userID');
-    const httpData: HTTP_REQ = { url: `user/${userID}` };
+    const httpData: HTTP_REQ = { url: `users/${userID}` };
     const { success, data } = await this.apiService.get(httpData);
     if (success && data?.existingUser) {
       const userInfo: PROFILE = {

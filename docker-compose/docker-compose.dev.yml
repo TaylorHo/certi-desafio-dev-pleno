@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    env_file:
+      - ../services/database/.env.dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - ../services/database/data/mongo/:/data/db
+      - ../services/database/data/init/:/docker-entrypoint-initdb.d/
+    networks:
+      - app-network
+
+networks: 
+    app-network:
+      name: external-network
+      external: true
