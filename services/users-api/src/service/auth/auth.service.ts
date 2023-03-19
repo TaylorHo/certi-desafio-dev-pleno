@@ -7,6 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { UserService } from '../user/user.service';
 import { AuthenticationLoginDto, AuthenticationRegisterDto } from 'src/dto/authentication.dto';
+import { LoggerService } from '../logger/logger.service';
 
 @Injectable()
 export class AuthService {
@@ -14,6 +15,7 @@ export class AuthService {
     @InjectModel('User') private userModel: Model<IUser>,
     private readonly jwtService: JwtService,
     private readonly userService: UserService,
+    private readonly loggerService: LoggerService,
   ) {}
 
   public async login(user: AuthenticationLoginDto, response: any) {
@@ -23,12 +25,23 @@ export class AuthService {
       const isTheSamePassword = await this.comparePasswords(existingUser.password, user.password);
       if (isTheSamePassword) {
         const payload = { email: user.email, id: existingUser._id };
+        await this.loggerService.createLog({
+          action: '(POST) /api/v1/login',
+          response: HttpStatus.OK.toString(),
+          payload: JSON.stringify(user),
+        });
         return response.status(HttpStatus.OK).json({
           access_token: this.jwtService.sign(payload),
           id: payload.id,
         });
       }
     }
+
+    await this.loggerService.createLog({
+      action: '(POST) /api/v1/login',
+      response: HttpStatus.UNAUTHORIZED.toString(),
+      payload: JSON.stringify(user),
+    });
 
     return response.status(HttpStatus.UNAUTHORIZED).json({
       statusCode: 401,
@@ -41,6 +54,11 @@ export class AuthService {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
 
     if (existingUser) {
+      await this.loggerService.createLog({
+        action: '(POST) /api/v1/register',
+        response: HttpStatus.CONFLICT.toString(),
+        payload: JSON.stringify(user),
+      });
       return response.status(HttpStatus.CONFLICT).json({
         statusCode: 409,
         message: 'Erro: Email já em uso!',
@@ -58,11 +76,21 @@ export class AuthService {
       try {
         const createdUser: IUser = await this.userService.createUser(userInfo);
         const payload = { email: createdUser.email, id: createdUser._id };
+        await this.loggerService.createLog({
+          action: '(POST) /api/v1/register',
+          response: HttpStatus.CREATED.toString(),
+          payload: JSON.stringify(user),
+        });
         return response.status(HttpStatus.CREATED).json({
           access_token: this.jwtService.sign(payload),
           id: payload.id,
         });
       } catch (error) {
+        await this.loggerService.createLog({
+          action: '(POST) /api/v1/register',
+          response: HttpStatus.FAILED_DEPENDENCY.toString(),
+          payload: JSON.stringify(user),
+        });
         return response.status(HttpStatus.FAILED_DEPENDENCY).json({
           statusCode: 424,
           message: 'Erro: Falha na criação do recurso!',

@@ -14,7 +14,7 @@ import { AuthService } from 'src/service/auth/auth.service';
 @ApiTags('/api/v1/auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Post('/login')
   @ApiOperation({

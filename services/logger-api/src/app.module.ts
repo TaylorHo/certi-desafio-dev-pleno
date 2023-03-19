@@ -21,7 +21,7 @@ import { LoggerSchema } from './schema/logger.schema';
         options: {
           client: {
             clientId: 'logger',
-            brokers: [process.env.KAFKA_BROKER],
+            brokers: ['localhost:9092'],
           },
           consumer: {
             groupId: 'logger-consumer',

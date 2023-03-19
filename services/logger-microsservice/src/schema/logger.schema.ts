@@ -12,7 +12,7 @@ export class Logger {
   payload: string;
 
   @Prop()
-  responseStatus: string;
+  response: string;
 }
 
 export const LoggerSchema = SchemaFactory.createForClass(Logger);

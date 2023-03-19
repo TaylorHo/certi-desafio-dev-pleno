@@ -1,11 +1,11 @@
-import { Document } from 'mongoose';
-
-export interface ILog extends Document {
+export interface ILog {
   readonly action: string;
 
-  readonly payload: any;
+  readonly payload: string;
 
-  readonly response: number;
+  readonly response: string;
+}
 
-  readonly timestamp?: number;
+export interface ILogTimestamp extends ILog {
+  readonly timestamp: string;
 }

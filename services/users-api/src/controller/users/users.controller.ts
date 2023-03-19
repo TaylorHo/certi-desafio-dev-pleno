@@ -35,22 +35,20 @@ export class UsersController {
       createUserDto.password = await this.authService.encryptPassword(createUserDto.password);
       const newUser = await this.userService.createUser(createUserDto);
       newUser.password = null;
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: '(POST) /api/v1/users',
         response: '200',
         payload: JSON.stringify(createUserDto),
-        timestamp: new Date().getTime(),
       });
       return response.status(HttpStatus.CREATED).json({
         message: 'O usuário foi criado com sucesso',
         newUser,
       });
     } catch (err) {
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: '(POST) /api/v1/users',
-        response: '400',
+        response: HttpStatus.BAD_REQUEST.toString(),
         payload: JSON.stringify(createUserDto),
-        timestamp: new Date().getTime(),
       });
       return response.status(HttpStatus.BAD_REQUEST).json({
         statusCode: 400,
@@ -73,22 +71,20 @@ export class UsersController {
         updateUserDto.password = await this.userService.getPassword(userId);
       }
       const existingUser = await this.userService.updateUser(userId, updateUserDto);
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: `(PUT) /api/v1/users/${userId}`,
         response: '200',
         payload: JSON.stringify(updateUserDto),
-        timestamp: new Date().getTime(),
       });
       return response.status(HttpStatus.OK).json({
         message: 'O usuário foi atualizado com sucesso',
         existingUser,
       });
     } catch (err) {
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: `(PUT) /api/v1/users/${userId}`,
         response: err.status.toString(),
         payload: JSON.stringify(updateUserDto),
-        timestamp: new Date().getTime(),
       });
       return response.status(err.status).json(err.response);
     }
@@ -105,22 +101,20 @@ export class UsersController {
   async getUsers(@Res() response) {
     try {
       const userData = await this.userService.getAllUsers();
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: '(GET) /api/v1/users',
         response: '200',
         payload: '{}',
-        timestamp: new Date().getTime(),
       });
       return response.status(HttpStatus.OK).json({
         message: 'Todos os dados dos usuários encontrados com sucesso',
         userData,
       });
     } catch (err) {
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: '(GET) /api/v1/users',
         response: err.status.toString(),
         payload: '{}',
-        timestamp: new Date().getTime(),
       });
       return response.status(err.status).json(err.response);
     }
@@ -137,22 +131,20 @@ export class UsersController {
   async getUser(@Res() response, @Param('id') userId: string) {
     try {
       const existingUser = await this.userService.getUser(userId);
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: `(GET) /api/v1/users/${userId}`,
         response: '200',
         payload: '{}',
-        timestamp: new Date().getTime(),
       });
       return response.status(HttpStatus.OK).json({
         message: 'Usuário encontrado com sucesso',
         existingUser,
       });
     } catch (err) {
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: `(GET) /api/v1/users/${userId}`,
         response: err.status.toString(),
         payload: '{}',
-        timestamp: new Date().getTime(),
       });
       return response.status(err.status).json(err.response);
     }
@@ -169,22 +161,20 @@ export class UsersController {
   async deleteUser(@Res() response, @Param('id') userId: string) {
     try {
       const deletedUser = await this.userService.deleteUser(userId);
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: `(DELETE) /api/v1/users/${userId}`,
         response: '200',
         payload: '{}',
-        timestamp: new Date().getTime(),
       });
       return response.status(HttpStatus.OK).json({
         message: 'Usuário excluído com sucesso',
         deletedUser,
       });
     } catch (err) {
-      this.loggerService.createLog({
+      await this.loggerService.createLog({
         action: `(DELETE) /api/v1/users/${userId}`,
         response: err.status.toString(),
         payload: '{}',
-        timestamp: new Date().getTime(),
       });
       return response.status(err.status).json(err.response);
     }
