@@ -25,6 +25,9 @@ export class UserModalComponent {
       : await this.userListService.addNewUser(formData);
     if (success) {
       this.dialogRef.close({ success: true, userData: user });
+      if (this.data.role !== user.role) {
+        window.location.reload();
+      }
     }
   }
 }

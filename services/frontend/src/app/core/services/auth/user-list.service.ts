@@ -19,7 +19,7 @@ export class UserListService {
     if (success && data?.userData) {
       return data.userData.map((user: any) => {
         const userId = user._id;
-        delete user.password;
+        delete user.password; // delete because API send it to us as "null"
         delete user.__v;
         delete user._id;
         return {
@@ -52,7 +52,7 @@ export class UserListService {
         message: `O usuário "${formData?.name}" foi criado`,
       });
       const userId = data.newUser._id;
-      delete data.newUser.password;
+      delete data.newUser.password; // delete because API send it to us as "null"
       delete data.newUser.__v;
       delete data.newUser._id;
       return {
@@ -80,7 +80,7 @@ export class UserListService {
     const { success, data } = await this.apiService.put(httpData);
     if (success && data?.existingUser) {
       const userId = data.existingUser._id;
-      delete data.existingUser.password;
+      delete data.existingUser.password; // delete because API send it to us as "null"
       delete data.existingUser.__v;
       delete data.existingUser._id;
       return {
@@ -105,7 +105,7 @@ export class UserListService {
     const { success, data } = await this.apiService.delete(httpData);
     if (success && data?.deletedUser) {
       const userId = data.deletedUser._id;
-      delete data.deletedUser.password;
+      delete data.deletedUser.password; // delete because API send it to us as "null"
       delete data.deletedUser.__v;
       delete data.deletedUser._id;
       return {

@@ -1,10 +1,11 @@
 <mat-toolbar>
   <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-      <div class="app-logo">
-        <!-- ! Logo should be svg or shoud as srcset -->
-        <img src="assets/images/logo-header.png" alt="site-logo" loading="lazy" height="30px" />
-      </div>
+      <a [routerLink]="'/home'">
+        <div class="app-logo">
+          <img src="assets/images/logo.svg" alt="site-logo" loading="lazy" height="50px" />
+        </div>
+      </a>
       <div class="toolbar-navigation">
         <ng-container *ngIf="currentUser | async as user; else noUser">
           <a mat-icon-button [routerLink]="['/']" matTooltip="Início" color="primart">
