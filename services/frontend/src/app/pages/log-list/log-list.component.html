@@ -1,0 +1,10 @@
+<ng-container *ngIf="logList && logList.length">
+  <ng-container *ngIf="logList.length > 0; else noItemTemplate">
+    <log-table [logList]="logList" (viewLog)="viewLog($event)"></log-table>
+  </ng-container>
+  <ng-template #noItemTemplate>
+    <div class="alert alert-warning">
+      <p>A lista de usuários não tem nenhum item</p>
+    </div>
+  </ng-template>
+</ng-container>

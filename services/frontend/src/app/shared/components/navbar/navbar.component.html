@@ -14,6 +14,9 @@
           <a mat-icon-button [routerLink]="['/user-list']" matTooltip="Lista de Usuários" color="primart" *ngIf="user.role > 1">
             <mat-icon>group</mat-icon>
           </a>
+          <a mat-icon-button [routerLink]="['/log-list']" matTooltip="Lista de Logs" color="primart" *ngIf="user.role > 1">
+            <mat-icon>query_stats</mat-icon>
+          </a>
           <!-- USER MENU -->
 
           <button matTooltip="Menu do Usuário" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu do Usuário">

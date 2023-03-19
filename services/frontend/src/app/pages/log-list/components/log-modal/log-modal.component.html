@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Visualizando log</h1>
+<div mat-dialog-content>
+  <div class="item"><strong>Ação:</strong> {{log.action}}</div>
+  <div class="item"><strong>Timestamp:</strong> {{log.timestamp}}</div>
+  <div class="item"><strong>Resposta HTTP:</strong> {{log.response}}</div>
+  <div class="item">
+    <strong>Payload:</strong>
+    <code [innerHTML]="log.payload"></code>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button type="button" color="primary" mat-dialog-close>Fechar</button>
+</div>

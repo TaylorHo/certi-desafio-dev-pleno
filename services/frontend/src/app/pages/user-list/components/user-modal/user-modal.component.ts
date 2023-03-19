@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UserListService } from '@core/services/auth';
-// MODELS
 import { PROFILE } from '@models/auth';
+
 @Component({
   selector: 'app-user-modal',
   templateUrl: './user-modal.component.html',
