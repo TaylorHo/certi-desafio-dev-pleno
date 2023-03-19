@@ -5,7 +5,7 @@ services:
     image: mongo
     restart: on-failure
     env_file:
-      - ../services/database/.env.dev
+      - ../services/database/.env.prod
     ports:
       - "27017:27017"
     volumes:
@@ -58,7 +58,7 @@ services:
     restart: on-failure
     build:
       context: ../services/users-api
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     ports:
       - '3008:3000'
     depends_on:
@@ -72,7 +72,7 @@ services:
     restart: on-failure
     build:
       context: ../services/users-api
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     ports:
       - '3009:3000'
     depends_on:
@@ -86,7 +86,7 @@ services:
     restart: on-failure
     build:
       context: ../services/logger-api
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     ports:
       - '3005:3001'
     depends_on:
@@ -100,7 +100,7 @@ services:
     restart: on-failure
     build:
       context: ../services/logger-api
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     ports:
       - '3006:3001'
     depends_on:
@@ -114,7 +114,7 @@ services:
     restart: on-failure
     build:
       context: ../services/logger-microsservice
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     depends_on:
       - kafka
     networks:

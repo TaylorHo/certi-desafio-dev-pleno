@@ -83,7 +83,7 @@ export class UsersController {
     } catch (err) {
       await this.loggerService.createLog({
         action: `(PUT) /api/v1/users/${userId}`,
-        response: err.status.toString(),
+        response: '404',
         payload: JSON.stringify(updateUserDto),
       });
       return response.status(err.status).json(err.response);
@@ -113,7 +113,7 @@ export class UsersController {
     } catch (err) {
       await this.loggerService.createLog({
         action: '(GET) /api/v1/users',
-        response: err.status.toString(),
+        response: '404',
         payload: '{}',
       });
       return response.status(err.status).json(err.response);
@@ -143,7 +143,7 @@ export class UsersController {
     } catch (err) {
       await this.loggerService.createLog({
         action: `(GET) /api/v1/users/${userId}`,
-        response: err.status.toString(),
+        response: '404',
         payload: '{}',
       });
       return response.status(err.status).json(err.response);
@@ -173,7 +173,7 @@ export class UsersController {
     } catch (err) {
       await this.loggerService.createLog({
         action: `(DELETE) /api/v1/users/${userId}`,
-        response: err.status.toString(),
+        response: '404',
         payload: '{}',
       });
       return response.status(err.status).json(err.response);

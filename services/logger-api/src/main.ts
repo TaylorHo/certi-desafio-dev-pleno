@@ -6,7 +6,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: process.env.CORS_WHITE_LIST,
+    origin: '*',
   });
 
   const config = new DocumentBuilder()
@@ -16,11 +16,11 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api/v1', app, document, {
+  SwaggerModule.setup('logger-api/api/v1', app, document, {
     customSiteTitle: 'Logs API',
   });
 
-  app.setGlobalPrefix('api/v1');
+  app.setGlobalPrefix('logger-api/api/v1');
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(process.env.PORT || 3001);
 }

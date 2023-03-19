@@ -73,6 +73,7 @@ export class AuthService {
       this.snackMessage.show({
         message: 'Falha ao retornar o perfil',
       });
+      this.logOut();
       return null;
     }
   }

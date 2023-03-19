@@ -1,0 +1,31 @@
+FROM alpine:latest AS builder
+
+WORKDIR /var/www
+
+COPY package*.json ./
+
+RUN apk add --update nodejs npm
+
+RUN npm ci --silent --no-progress
+COPY . .
+
+RUN npm run build
+
+# ----------------------------------------------
+
+FROM alpine:latest
+WORKDIR /var/www
+RUN mkdir -p /var/www/storage
+
+RUN apk add --update nodejs npm
+
+COPY package*.json ./
+
+ENV NODE_ENV=production
+RUN npm ci --silent --no-progress
+
+COPY .env.prod .env
+
+COPY --from=builder /var/www/dist/ ./dist
+
+ENTRYPOINT npm run start:container

@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/user-management-interview",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,7 +30,7 @@
             "styles": ["src/styles.scss"],
             "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "ng-service-worker-config.json"
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -99,7 +99,6 @@
       }
     }
   },
-  "defaultProject": "user-management-interview",
   "cli": {
     "analytics": "f7ac5864-df9a-4209-af06-d0952e4c699b"
   }

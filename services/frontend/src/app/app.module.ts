@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    ServiceWorkerModule.register('ng-service-worker-worker.js', {
+    ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as possible
       // or after 30 seconds (whichever comes first).

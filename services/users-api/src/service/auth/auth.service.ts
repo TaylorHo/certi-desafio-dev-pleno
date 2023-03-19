@@ -22,7 +22,7 @@ export class AuthService {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
     const userPayloadLog = {
       password: 'redacted_for_privacy',
-      ...user,
+      email: user.email,
     };
 
     if (existingUser) {
@@ -58,7 +58,7 @@ export class AuthService {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
     const userPayloadLog = {
       password: 'redacted_for_privacy',
-      ...user,
+      email: user.email,
     };
 
     if (existingUser) {
