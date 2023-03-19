@@ -20,6 +20,10 @@ export class AuthService {
 
   public async login(user: AuthenticationLoginDto, response: any) {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
+    const userPayloadLog = {
+      password: 'redacted_for_privacy',
+      ...user,
+    };
 
     if (existingUser) {
       const isTheSamePassword = await this.comparePasswords(existingUser.password, user.password);
@@ -28,7 +32,7 @@ export class AuthService {
         await this.loggerService.createLog({
           action: '(POST) /api/v1/login',
           response: HttpStatus.OK.toString(),
-          payload: JSON.stringify(user),
+          payload: JSON.stringify(userPayloadLog),
         });
         return response.status(HttpStatus.OK).json({
           access_token: this.jwtService.sign(payload),
@@ -40,7 +44,7 @@ export class AuthService {
     await this.loggerService.createLog({
       action: '(POST) /api/v1/login',
       response: HttpStatus.UNAUTHORIZED.toString(),
-      payload: JSON.stringify(user),
+      payload: JSON.stringify(userPayloadLog),
     });
 
     return response.status(HttpStatus.UNAUTHORIZED).json({
@@ -52,12 +56,16 @@ export class AuthService {
 
   public async register(user: AuthenticationRegisterDto, response: any) {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
+    const userPayloadLog = {
+      password: 'redacted_for_privacy',
+      ...user,
+    };
 
     if (existingUser) {
       await this.loggerService.createLog({
         action: '(POST) /api/v1/register',
         response: HttpStatus.CONFLICT.toString(),
-        payload: JSON.stringify(user),
+        payload: JSON.stringify(userPayloadLog),
       });
       return response.status(HttpStatus.CONFLICT).json({
         statusCode: 409,
@@ -79,7 +87,7 @@ export class AuthService {
         await this.loggerService.createLog({
           action: '(POST) /api/v1/register',
           response: HttpStatus.CREATED.toString(),
-          payload: JSON.stringify(user),
+          payload: JSON.stringify(userPayloadLog),
         });
         return response.status(HttpStatus.CREATED).json({
           access_token: this.jwtService.sign(payload),
@@ -89,7 +97,7 @@ export class AuthService {
         await this.loggerService.createLog({
           action: '(POST) /api/v1/register',
           response: HttpStatus.FAILED_DEPENDENCY.toString(),
-          payload: JSON.stringify(user),
+          payload: JSON.stringify(userPayloadLog),
         });
         return response.status(HttpStatus.FAILED_DEPENDENCY).json({
           statusCode: 424,

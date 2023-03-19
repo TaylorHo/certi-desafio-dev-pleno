@@ -26,6 +26,11 @@ export class LoggerService {
     if (!logData || logData.length == 0) {
       throw new NotFoundException('Nenhum log encontrado!');
     }
+    logData.forEach((log) => {
+      log.id = log._id;
+      delete log._id;
+      delete log.__v;
+    });
     return logData;
   }
 
@@ -34,6 +39,9 @@ export class LoggerService {
     if (!existingLog) {
       throw new NotFoundException(`Log #${logID} não encontrado`);
     }
+    existingLog.id = existingLog._id;
+    delete existingLog._id;
+    delete existingLog.__v;
     return existingLog;
   }
 }
