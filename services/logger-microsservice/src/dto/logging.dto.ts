@@ -1,5 +1,8 @@
 import { IsNumberString, IsNotEmpty, IsString } from 'class-validator';
 
+/**
+ * Objeto de Transferência de Dados que contém os dados do Log.
+ */
 export class LogsDto {
   @IsString()
   @IsNotEmpty()

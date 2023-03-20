@@ -15,6 +15,9 @@ import { ApiBadRequestResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation
 import { LogsDto } from 'src/dto/logging.dto';
 import { LoggerService } from 'src/service/logger/logger.service';
 
+/**
+ * Controller responsável pelos endpoints de logs.
+ */
 @ApiTags('/api/v1/logs')
 @Controller('logs')
 export class LoggerController implements OnModuleInit, OnModuleDestroy {
@@ -24,6 +27,7 @@ export class LoggerController implements OnModuleInit, OnModuleDestroy {
   ) {}
 
   async onModuleInit() {
+    // Inscrição no tópico do kafka ao qual vamos publicar, seguindo a documentação oficial do NestJS.
     this.loggerKafkaClient.subscribeToResponseOf('log.create');
   }
 
@@ -31,6 +35,9 @@ export class LoggerController implements OnModuleInit, OnModuleDestroy {
     this.loggerKafkaClient.close();
   }
 
+  /**
+   * Endpoint responsável pela criação de um log.
+   */
   @Post()
   @ApiOkResponse({ description: 'Log criado com sucesso' })
   @ApiBadRequestResponse({ description: 'Não foi possível criar o log!' })
@@ -50,6 +57,9 @@ export class LoggerController implements OnModuleInit, OnModuleDestroy {
     }
   }
 
+  /**
+   * Endpoint responsável por retornar todos os logs salvos.
+   */
   @Get()
   @ApiOkResponse({ description: 'Lista de logs recuperada com sucesso' })
   @ApiBadRequestResponse({ description: 'Nenhum log foi encontrado!' })
@@ -69,6 +79,9 @@ export class LoggerController implements OnModuleInit, OnModuleDestroy {
     }
   }
 
+  /**
+   * Endpoint responsável por retornar um único log, baseado em seu ID.
+   */
   @Get('/:id')
   @ApiOkResponse({ description: 'Log recuperado com sucesso' })
   @ApiNotFoundResponse({ description: 'Log não encontrado!' })

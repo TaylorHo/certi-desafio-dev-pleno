@@ -1,5 +1,8 @@
 import { Document } from 'mongoose';
 
+/**
+ * Interface utilizada pelo Model do Mongoose para Logs.
+ */
 export interface ILog extends Document {
   readonly action: string;
 

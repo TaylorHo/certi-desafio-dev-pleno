@@ -5,6 +5,9 @@ import { Model } from 'mongoose';
 import { LogsDto } from 'src/dto/logging.dto';
 import { ILog } from 'src/interface/log.interface';
 
+/**
+ * Serviço responsável por criar e retornar logs.
+ */
 @Injectable()
 export class LoggerService {
   constructor(
@@ -12,6 +15,9 @@ export class LoggerService {
     @InjectModel('Log') private loggerModel: Model<ILog>,
   ) {}
 
+  /**
+   * Cria um log como uma mensagem no kafka, para após isso o microsserviço de logs cadastrar o log.
+   */
   public async createLog(log: LogsDto): Promise<LogsDto> {
     try {
       this.loggerKafkaClient.send('log.create', log).subscribe();
@@ -21,6 +27,9 @@ export class LoggerService {
     }
   }
 
+  /**
+   * Retorna todos os logs disponíveis no banco de dados.
+   */
   public async getLogs(): Promise<ILog[]> {
     const logData = await this.loggerModel.find();
     if (!logData || logData.length == 0) {
@@ -34,6 +43,9 @@ export class LoggerService {
     return logData;
   }
 
+  /**
+   * Retorna um único log, baseado em seu ID.
+   */
   public async getSingleLog(logID: string): Promise<ILog> {
     const existingLog = await this.loggerModel.findById(logID).exec();
     if (!existingLog) {

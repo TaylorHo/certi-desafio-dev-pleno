@@ -9,6 +9,7 @@ async function bootstrap() {
     origin: '*',
   });
 
+  // Swagger
   const config = new DocumentBuilder()
     .setTitle('CERTI Challenge Logs API')
     .setDescription('API de gerenciamento de logs criada para o desafio da CERTI.')

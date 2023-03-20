@@ -1,6 +1,9 @@
 import { IsNumberString, IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
+/**
+ * Objeto de Transferência de Dados que contém as informações do log.
+ */
 export class LogsDto {
   @ApiProperty({
     type: String,
