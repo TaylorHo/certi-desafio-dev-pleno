@@ -14,6 +14,7 @@ export class HomeComponent {
   public readonly userRoles: string[] = environment.userRoles;
   public currentUser$: Observable<PROFILE | null> = this.globalData.currentUser$.asObservable();
   public usersApiURL: string = environment.apiUrl;
+  public logsApiURL: string = environment.logUrl;
 
   constructor(private globalData: GlobalDataService, private authService: AuthService) {}
 
