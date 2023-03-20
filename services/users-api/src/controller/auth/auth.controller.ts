@@ -16,6 +16,10 @@ import { AuthService } from 'src/service/auth/auth.service';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  /**
+   * Endpoint responsável pela autenticação com usuário e senha.
+   * Retorna um token JWT para o usuário requisitar os endpoints protegidos.
+   */
   @Post('/login')
   @ApiOperation({
     summary: 'Autenticação de um usuário',
@@ -27,6 +31,10 @@ export class AuthController {
     return this.authService.login(req, res);
   }
 
+  /**
+   * Endpoint responsável pelo registro de usuário, recebendo email, nome e senha.
+   * Retorna um token JWT para o usuário requisitar os endpoints protegidos.
+   */
   @Post('/register')
   @ApiOperation({ summary: 'Registrar um usuário', description: 'Endpoint responsável pelo registro do usuário' })
   @ApiCreatedResponse({ description: 'Usuário criado com sucesso' })

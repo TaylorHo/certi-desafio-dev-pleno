@@ -9,6 +9,7 @@ async function bootstrap() {
     origin: '*',
   });
 
+  // Swagger
   const config = new DocumentBuilder()
     .setTitle('CERTI Challenge Users API')
     .setDescription('API de gerenciamento de usuários criada para o desafio da CERTI.')
@@ -20,6 +21,7 @@ async function bootstrap() {
     customSiteTitle: 'Users API',
   });
 
+  // Versionamento da API
   app.setGlobalPrefix('users-api/api/v1');
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(process.env.PORT || 3000);

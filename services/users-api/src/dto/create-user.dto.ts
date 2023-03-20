@@ -1,6 +1,9 @@
 import { IsNumberString, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
+/**
+ * Objeto de Transferência de Dados que contém os dados utilizado no processo de criação de usuário por outros usuários.
+ */
 export class CreateUserDto {
   @ApiProperty({
     type: String,

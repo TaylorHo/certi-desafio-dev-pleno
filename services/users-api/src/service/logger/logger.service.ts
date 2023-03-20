@@ -4,10 +4,16 @@ import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { ILog, ILogTimestamp } from 'src/interface/log.interface';
 
+/**
+ * Serviço responsável por gerar logs de tudo o que é realizado neste CRUD.
+ */
 @Injectable()
 export class LoggerService {
   constructor(private readonly httpService: HttpService) {}
 
+  /**
+   * Cria um log, utilizando informações do tipo ILog, fazendo uma requisição à API de Logs.
+   */
   public async createLog(log: ILog): Promise<ILogTimestamp> {
     const logValue: ILogTimestamp = {
       action: log.action,

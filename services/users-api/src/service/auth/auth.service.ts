@@ -9,6 +9,9 @@ import { UserService } from '../user/user.service';
 import { AuthenticationLoginDto, AuthenticationRegisterDto } from 'src/dto/authentication.dto';
 import { LoggerService } from '../logger/logger.service';
 
+/**
+ * Serviço responsável pelas ações de autenticação, como login, registro e verificações de credenciais de acesso.
+ */
 @Injectable()
 export class AuthService {
   constructor(
@@ -18,6 +21,9 @@ export class AuthService {
     private readonly loggerService: LoggerService,
   ) {}
 
+  /**
+   * Realiza o login do usuário, utilizando um AuthenticationLoginDto.
+   */
   public async login(user: AuthenticationLoginDto, response: any) {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
     const userPayloadLog = {
@@ -54,6 +60,9 @@ export class AuthService {
     });
   }
 
+  /**
+   * Realiza o registro de um usuário, utilizando um AuthenticationRegisterDto.
+   */
   public async register(user: AuthenticationRegisterDto, response: any) {
     const existingUser = await this.userModel.findOne({ email: user.email }).exec();
     const userPayloadLog = {
@@ -62,6 +71,7 @@ export class AuthService {
     };
 
     if (existingUser) {
+      // Email já em uso
       await this.loggerService.createLog({
         action: '(POST) /api/v1/register',
         response: HttpStatus.CONFLICT.toString(),
@@ -108,12 +118,18 @@ export class AuthService {
     }
   }
 
+  /**
+   * Recebe uma senha em plaintext e converte para uma senha criptografada, utilizando 12 salts e o segrede definido no arquivo .env
+   */
   public async encryptPassword(password: string): Promise<string> {
     const saltOrRounds = 12;
     const hash = await bcrypt.hash(password, saltOrRounds);
     return hash;
   }
 
+  /**
+   * Compara a senha em plaintext com a senha criptografada, salva no banco de dados.
+   */
   private async comparePasswords(hashedPassword: string, textPassword: string): Promise<boolean> {
     const hash = await bcrypt.compare(textPassword, hashedPassword);
     return hash;

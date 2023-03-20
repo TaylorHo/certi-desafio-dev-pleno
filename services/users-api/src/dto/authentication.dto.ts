@@ -1,6 +1,9 @@
 import { IsString, MaxLength } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
+/**
+ * Objeto de Transferência de Dados que contém os dados utilizado no processo de login.
+ */
 export class AuthenticationLoginDto {
   @ApiProperty({
     type: String,
@@ -19,6 +22,9 @@ export class AuthenticationLoginDto {
   password: string;
 }
 
+/**
+ * Objeto de Transferência de Dados que contém os dados utilizado no processo de registro de usuário.
+ */
 export class AuthenticationRegisterDto extends AuthenticationLoginDto {
   @ApiProperty({
     type: String,

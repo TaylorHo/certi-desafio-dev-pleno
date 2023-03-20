@@ -25,6 +25,9 @@ export class UsersController {
     private readonly loggerService: LoggerService,
   ) {}
 
+  /**
+   * Endpoint do tipo POST responsável pela criação de um usuário.
+   */
   @Post()
   @ApiCreatedResponse({ description: 'Usuário criado com sucesso' })
   @ApiBadRequestResponse({ description: 'Usuário não criado!' })
@@ -58,6 +61,9 @@ export class UsersController {
     }
   }
 
+  /**
+   * Endpoint do tipo PUT responsável pela edição de um usuário.
+   */
   @Put('/:id')
   @ApiOkResponse({ description: 'Usuário atualizado com sucesso' })
   @ApiBadRequestResponse({ description: 'Usuário não atualizado!' })
@@ -90,6 +96,9 @@ export class UsersController {
     }
   }
 
+  /**
+   * Endpoint do tipo GET responsável por retornar todos os usuários.
+   */
   @Get()
   @ApiOkResponse({ description: 'Lista de usuários recuperada com sucesso' })
   @ApiBadRequestResponse({ description: 'Nenhum usuário foi encontrado!' })
@@ -120,6 +129,9 @@ export class UsersController {
     }
   }
 
+  /**
+   * Endpoint do tipo GET responsável por retornar um único usuário.
+   */
   @Get('/:id')
   @ApiOkResponse({ description: 'Usuário recuperado com sucesso' })
   @ApiNotFoundResponse({ description: 'Usuário não encontrado!' })
@@ -150,6 +162,9 @@ export class UsersController {
     }
   }
 
+  /**
+   * Endpoint do tipo DELETE responsável por excluir um usuário.
+   */
   @Delete('/:id')
   @ApiOkResponse({ description: 'Usuário excluído com sucesso' })
   @ApiBadRequestResponse({ description: 'Usuário não excluído!' })

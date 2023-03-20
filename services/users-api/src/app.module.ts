@@ -25,7 +25,7 @@ import { HttpModule } from '@nestjs/axios';
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
     JwtModule.register({
       secret: process.env.JWT_KEY,
-      signOptions: { expiresIn: '3600s' },
+      signOptions: { expiresIn: '3600s' }, // 3600s = 1hr
     }),
   ],
   controllers: [UsersController, AuthController],

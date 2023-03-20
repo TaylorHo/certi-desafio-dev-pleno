@@ -1,6 +1,9 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsNumberString, IsOptional, IsString, MaxLength } from 'class-validator';
 
+/**
+ * Objeto de Transferência de Dados que contém os dados utilizado no processo de edição de um usuário.
+ */
 export class UpdateUserDto {
   @ApiPropertyOptional({
     type: String,
