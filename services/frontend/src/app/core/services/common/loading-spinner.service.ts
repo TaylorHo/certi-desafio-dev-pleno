@@ -3,6 +3,9 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { LoadingSpinner } from '@shared/components';
 
+/**
+ * Serviço responsável por mostrar Loading Spinner.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -20,6 +23,9 @@ export class LoadingSpinnerService {
     });
   }
 
+  /**
+   * Começa a rodar o spinner, tendo controle de uma fila de processamentos.
+   */
   public addQuene() {
     if (this.spinnerCount > 0) {
       this.spinnerCount++;
@@ -29,6 +35,9 @@ export class LoadingSpinnerService {
     }
   }
 
+  /**
+   * Começa a parar o spinner, levando em conta a fila de processamentos.
+   */
   public removeQuene() {
     this.spinnerCount--;
     if (this.spinnerCount < 1) {
@@ -36,10 +45,16 @@ export class LoadingSpinnerService {
     }
   }
 
+  /**
+   * Mostra o spinner
+   */
   private showSpinner() {
     this.overlayRef.attach(new ComponentPortal(LoadingSpinner));
   }
 
+  /**
+   * Para o spinner
+   */
   private stopSpinner() {
     this.overlayRef.detach();
   }

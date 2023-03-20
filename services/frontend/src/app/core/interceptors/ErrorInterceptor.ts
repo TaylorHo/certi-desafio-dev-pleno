@@ -2,8 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-// SERVICES
 import { LoadingSpinnerService } from '@core/services/common';
+
+/**
+ * Interceptor para tratar os erros recebidos, customizando as mensagens de erros.
+ */
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(private spinnerService: LoadingSpinnerService) {}
@@ -13,10 +16,8 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
-          //  frontend error
           errorMessage = `Error: ${error.error.message}`;
         } else {
-          // backend error
           errorMessage = error.error || error.message;
         }
         this.spinnerService.removeQuene();

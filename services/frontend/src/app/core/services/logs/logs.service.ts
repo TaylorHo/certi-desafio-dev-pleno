@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { shareReplay } from 'rxjs';
 
+/**
+ * Serviço responsável por lidar com os endpoints da API de Logs.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -11,6 +14,9 @@ export class LogsService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * Retornar todos os logs salvos.
+   */
   public async getAllLogs() {
     try {
       const result: any = await this.http.get(`${this.logUrl}/logs`).pipe(shareReplay()).toPromise();
@@ -20,6 +26,9 @@ export class LogsService {
     }
   }
 
+  /**
+   * Retornar um único log pelo seu ID.
+   */
   public async getSingleLog(logID: string) {
     try {
       const result: any = await this.http.get(`${this.logUrl}/logs/${logID}`).pipe(shareReplay()).toPromise();

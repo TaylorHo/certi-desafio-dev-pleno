@@ -8,11 +8,8 @@ const routes: Routes = [
     path: '',
     component: ErrorPagesComponent,
     children: [
-      // 401 AND 404 PAGES
       { path: '401', component: ForbiddenPage },
       { path: '404', component: NotfoundPage },
-
-      // DEFAULT ROUTE
       { path: '', redirectTo: '404', pathMatch: 'full' },
     ],
   },

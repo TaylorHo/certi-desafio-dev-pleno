@@ -1,3 +1,6 @@
+/**
+ * Interface das requisições HTTP
+ */
 export interface HTTP_REQ {
   url: string;
   params?: any;
@@ -5,6 +8,9 @@ export interface HTTP_REQ {
   body?: any;
 }
 
+/**
+ * Interface das respostas HTTP
+ */
 export interface HTTP_RES {
   success: boolean;
   data: any;

@@ -4,16 +4,20 @@ import { shareReplay } from 'rxjs/operators';
 import { environment } from '@environments/environment';
 import { HTTP_REQ, HTTP_RES } from '@models/common';
 
+/**
+ * Serviço responsável por gerenciar as chamadas à API.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  // API URL
   private readonly apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
-  // GET REQUEST
+  /**
+   * Requisições do tipo GET
+   */
   public async get(httpData: HTTP_REQ): Promise<HTTP_RES> {
     try {
       const httpOptions = this.generateHttpOptions(httpData.params, httpData.headers);
@@ -27,7 +31,9 @@ export class ApiService {
     }
   }
 
-  // POST REQUEST
+  /**
+   * Requisições do tipo POST
+   */
   public async post(httpData: HTTP_REQ) {
     try {
       const httpOptions = this.generateHttpOptions(httpData.params, httpData.headers);
@@ -41,7 +47,9 @@ export class ApiService {
     }
   }
 
-  // PUT REQUEST
+  /**
+   * Requisições do tipo PUT
+   */
   public async put(httpData: HTTP_REQ) {
     try {
       const httpOptions = this.generateHttpOptions(httpData.params, httpData.headers);
@@ -55,7 +63,9 @@ export class ApiService {
     }
   }
 
-  // DELETE REQUEST
+  /**
+   * Requisições do tipo DELETE
+   */
   public async delete(httpData: HTTP_REQ) {
     try {
       const result: any = await this.http
@@ -68,7 +78,9 @@ export class ApiService {
     }
   }
 
-  // DYNAMIC HTTP OPTIONS
+  /**
+   * Gera opções dinâmicas para a requisição HTTP
+   */
   private generateHttpOptions(params: any, headers: any) {
     const httpOptions: any = {};
     if (params) {

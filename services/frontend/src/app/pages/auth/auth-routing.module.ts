@@ -8,8 +8,6 @@ const routes: Routes = [
     path: '',
     component: AuthComponent,
     children: [
-      // SET DEFAULT LOGIN PAGE
-      // LOGIN AND REGISTER PAGES
       { path: 'login', component: LoginPage },
       { path: 'register', component: RegisterPage },
       { path: '', redirectTo: 'login', pathMatch: 'full' },

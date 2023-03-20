@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-// ROUTER GUARDS
 import { LoginGuard, NotLoginGuard } from '@core/guards';
 
+/**
+ * Rotas gerais da aplicação.
+ */
 const routes: Routes = [
   {
     path: 'auth',
@@ -19,10 +20,11 @@ const routes: Routes = [
     path: '',
     canActivate: [LoginGuard],
     canLoad: [LoginGuard],
+    // Carregar o módulo de rotas internas da aplicação.
     loadChildren: () => import('./pages/pages.module').then((module) => module.PagesModule),
   },
 
-  // WRONG URL REDIRECT TO 404 PAGE
+  // Página 404
   { path: '**', redirectTo: 'error' },
 ];
 

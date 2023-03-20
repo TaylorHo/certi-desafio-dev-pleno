@@ -11,7 +11,7 @@
     <h2>Gerenciamento de Usuários</h2>
     <p>
       Bem vindo(a) ao projeto de Gerenciamento de Usuários! Existem 3 cargos/funções disponíveis aos usuários (Super Admin, Admin e Cliente).
-      Além disso, essa plataforma conta com 6 páginas (Login, Registro, Página Inicial, Lista de Usuários, Erro 401 e Erro 404).
+      Além disso, essa plataforma conta com 7 páginas (Login, Registro, Página Inicial, Lista de Usuários, Lista de Logs, Erro 401 e Erro 404).
     </p>
 
     <h2>Segurança</h2>
@@ -68,6 +68,9 @@
       <li>
         O token JWT utilizado na autenticação expira após 1 hora.
       </li>
+      <li>
+        Todas as ações realizadas são "logadas" para futura consulta.
+      </li>
     </ul>
 
     <h2>Funções</h2>
@@ -81,6 +84,7 @@
     <ul>
       <li>Frontend criado em Angular 15</li>
       <li>Backend criado em NestJS</li>
+      <li>Serviço de messageria com Kafka para a criação de logs</li>
       <li>Documentação da API de usuários acessível em <a href="{{usersApiURL}}" target="_blank">{{usersApiURL}}</a></li>
       <li>Biblioteca de estilos Material Design</li>
       <li>Sass como template engine de CSS</li>
@@ -88,12 +92,19 @@
       <li>Banco de dados NoSql com mongoDB</li>
       <li>Messageria com Kafka para gerenciamento de usuários em forma de fila</li>
       <li>Ambientes de desenvolvimento, desenvolvimento em container, staging e produção</li>
-      <li>Load Balancing com NGINX (quando subido o ambiente de produção)</li>
+      <li>Load Balancing com NGINX (em container)</li>
+    </ul>
+
+    <h2>Melhorias futuras</h2>
+    <ul>
+      <li>Ampliação dos Testes</li>
+      <li>Implementação de Websockets para atualizações em tempo real</li>
+      <li>Ampliar documentação das páginas do front</li>
     </ul>
 
     <h2>Considerações finais</h2>
     <p>
-      Ao todo, este projeto consumiu 12 horas de trabalho, com tudo sendo criado do absoluto zero, e tem como principal objetivo
+      Ao todo, este projeto consumiu 20 horas de trabalho, com tudo sendo criado do absoluto zero, e tem como principal objetivo
       mostrar que um desenvolvedor com pouco tempo de experiência profissional ou tempo de formação é tão capaz quanto ou, em alguns casos,
       até melhor que os devs com mais tempo de formação e/ou experiência profissional.
     </p>

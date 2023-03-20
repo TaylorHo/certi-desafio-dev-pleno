@@ -40,7 +40,7 @@ export class LoggerService {
       delete log._id;
       delete log.__v;
     });
-    return logData;
+    return logData.reverse();
   }
 
   /**

@@ -12,6 +12,9 @@ import {
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
+/**
+ * Page Guard para evitar que usuários autenticados vejam as páginas de login e registro.
+ */
 @Injectable({
   providedIn: 'root',
 })

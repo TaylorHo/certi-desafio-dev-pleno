@@ -5,6 +5,10 @@ import { PagesComponent } from './pages.component';
 import { HomeComponent as HomePage } from './home/home.component';
 import { UserListComponent as UserListPage } from './user-list/user-list.component';
 import { LogListComponent as LogListPage } from './log-list/log-list.component';
+
+/**
+ * Rotas internas da aplicação
+ */
 const routes: Routes = [
   {
     path: '',

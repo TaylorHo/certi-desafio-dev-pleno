@@ -6,6 +6,9 @@ import { SnackMessageService } from '../notifcation';
 import { HTTP_REQ } from '@models/common';
 import { LOGIN_FORM_DATA, PROFILE, REGISTER_FORM_DATA } from '@models/auth';
 
+/**
+ * Serviço responsável pela autenticação do usuário.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -18,7 +21,9 @@ export class AuthService {
     private globalDataService: GlobalDataService,
   ) {}
 
-  // REGISTER
+  /**
+   * Realiza o registro de um usuário
+   */
   public async register(formData: REGISTER_FORM_DATA) {
     delete formData.passwordConfirm;
     const httpData: HTTP_REQ = {
@@ -42,7 +47,9 @@ export class AuthService {
     }
   }
 
-  // LOGIN
+  /**
+   * Realiza o login de um usuário
+   */
   public async login(formData: LOGIN_FORM_DATA) {
     const httpData: HTTP_REQ = { url: 'auth/login', body: formData };
     const { success, data } = await this.apiService.post(httpData);
@@ -56,6 +63,9 @@ export class AuthService {
     }
   }
 
+  /**
+   * Retorna o perfil do usuário atual
+   */
   public async userProfile(): Promise<PROFILE | null> {
     const userID = this.cookieService.get('userID');
     const httpData: HTTP_REQ = { url: `users/${userID}` };
@@ -78,13 +88,18 @@ export class AuthService {
     }
   }
 
-  // LOGOUT
+  /**
+   * Realiza logout da conta
+   */
   public logOut() {
     this.cookieService.deleteAll();
     this.globalDataService.currentUser$.next(null);
     this.router.navigate(['/auth']);
   }
 
+  /**
+   * Salva o token JWT e o ID do usuário como cookies
+   */
   private setCookies(oAuthToken: string, userID: string) {
     const expires = this.expireTime1Hour;
     this.cookieService.set('authToken', oAuthToken, {
@@ -94,7 +109,9 @@ export class AuthService {
     this.cookieService.set('userID', userID, { path: '/', expires });
   }
 
-  // GET NEXT 1 HOUR
+  /**
+   * Calcula a próxima 1hr, para expirar os cookies
+   */
   private get expireTime1Hour() {
     const dNow = new Date();
     let dTime = dNow.getTime();

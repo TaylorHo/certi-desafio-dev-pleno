@@ -4,13 +4,18 @@ import { SnackMessageService } from '../notifcation';
 import { HTTP_REQ } from '@models/common';
 import { PROFILE, REGISTER_FORM_DATA } from '@models/auth';
 
+/**
+ * Serviço responsável por realizar as operações de usuários.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class UserListService {
   constructor(private apiService: ApiService, private snackMessage: SnackMessageService) {}
 
-  // LIST USERS
+  /**
+   * Retorna todos os usuários salvos no banco.
+   */
   public async getAllUsers(): Promise<PROFILE[]> {
     const httpData: HTTP_REQ = {
       url: 'users',
@@ -35,7 +40,9 @@ export class UserListService {
     }
   }
 
-  // ADD NEW USER
+  /**
+   * Cria um novo usuário.
+   */
   public async addNewUser(formData: REGISTER_FORM_DATA): Promise<{ success: boolean; user: PROFILE }> {
     const httpData: HTTP_REQ = {
       url: 'users',
@@ -70,6 +77,9 @@ export class UserListService {
     }
   }
 
+  /**
+   * Atualiza um usuário.
+   */
   public async updateUser(user: PROFILE): Promise<{ success: boolean; user: PROFILE }> {
     const httpData: HTTP_REQ = {
       url: `users/${user.id}`,
@@ -98,6 +108,9 @@ export class UserListService {
     }
   }
 
+  /**
+   * Exclui um usuário.
+   */
   public async deleteUser(userID: number): Promise<{ success: boolean; user: PROFILE }> {
     const httpData: HTTP_REQ = {
       url: `users/${userID}`,

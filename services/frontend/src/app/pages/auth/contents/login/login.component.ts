@@ -10,20 +10,12 @@ import { FormValidationService } from '@core/services/form';
 })
 export class LoginComponent {
   public showPassword = false;
-  // INIT LOGIN FORM DIRECTLY
   public loginForm: FormGroup = this.formBuilder.group({
     email: [
       '',
       Validators.compose([Validators.required, Validators.email, Validators.minLength(5), Validators.maxLength(30)]),
     ],
-    password: [
-      '',
-      Validators.compose([
-        Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(30),
-      ]),
-    ],
+    password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(30)])],
   });
 
   constructor(
@@ -32,17 +24,14 @@ export class LoginComponent {
     private formValidationService: FormValidationService,
   ) {}
 
-  // FIELD ERROR
   public fieldHasError(fieldName: string): boolean {
     return this.formValidationService.fieldHasError(fieldName, this.loginForm);
   }
 
-  // FIELD ERROR MESSAGE
   public getErrorMessage(fieldName: string): string {
     return this.formValidationService.getErrorMessage(fieldName, this.loginForm);
   }
 
-  // SUBMIT LOGIN FORM
   public onLoginSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value);
